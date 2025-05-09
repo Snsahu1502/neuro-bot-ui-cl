@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import NeuroBotHeader from "./components/NeuroBotHeader";
+import FeatureSection from "./components/SecurityTrustSection";
+import FAQAccordion from "./components/FaqAccordian";
+import ContactSection from "./components/ContactSection";
+import CtaBanner from "./components/Ctabanner";
+import FooterComponent from "./components/FooterComponent";
+import SecurityTrustSection from "./components/SecurityTrustSection";
+import ProcessWorks from "./components/ProcessWorks";
+import TestimonialsSection from "./components/TestimonialsSection";
+import FeatuSection from "./components/FeatuSection";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div id="chat">
+        <NeuroBotHeader />
+      </div>
+      <div id="features">
+        <FeatuSection />
+      </div>
+
+      <FeatureSection />
+      <ProcessWorks />
+      <TestimonialsSection />
+
+      <div id="faq">
+        <FAQAccordion />
+      </div>
+
+      <div id="contact">
+        <ContactSection />
+      </div>
+      <CtaBanner />
+      <FooterComponent />
     </div>
   );
 }
