@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
 import NeuroBotHeader from "./components/NeuroBotHeader";
-import FeatureSection from "./components/SecurityTrustSection";
 import FAQAccordion from "./components/FaqAccordian";
 import ContactSection from "./components/ContactSection";
 import CtaBanner from "./components/Ctabanner";
@@ -10,17 +10,40 @@ import ProcessWorks from "./components/ProcessWorks";
 import TestimonialsSection from "./components/TestimonialsSection";
 import FeatuSection from "./components/FeatuSection";
 
+const pageVariants = {
+  initial: { opacity: 0 },
+  animate: { 
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
+
 function App() {
+  useEffect(() => {
+    // Smooth scroll behavior for the entire page
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
   return (
-    <div>
+    <motion.div 
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      className="overflow-x-hidden"
+    >
       <div id="chat">
         <NeuroBotHeader />
       </div>
+      
       <div id="features">
         <FeatuSection />
       </div>
 
-      <FeatureSection />
+      {/* <SecurityTrustSection /> */}
       <ProcessWorks />
       <TestimonialsSection />
 
@@ -31,9 +54,10 @@ function App() {
       <div id="contact">
         <ContactSection />
       </div>
+      
       <CtaBanner />
       <FooterComponent />
-    </div>
+    </motion.div>
   );
 }
 
